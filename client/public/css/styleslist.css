@@ -1,0 +1,99 @@
+.comprehensive-list{
+    overflow:hidden;
+}
+.dropdown{
+    left:45%;
+    margin-bottom: 50px;
+}
+
+
+.def-text-box{
+    border-radius: 5px;
+    background-color: white;
+    width:80%;
+    left:10%;
+    height: 800px;
+    position:relative;
+}
+
+.def-text-box h1{
+    padding:200px;
+}
+
+.input-div{
+    background-color: white;
+    width:80%;
+    left:10%;
+    position: relative;
+    margin-bottom: 30px;
+    border-radius:5px;
+    padding: 30px;
+}
+
+.input-group{
+    margin:0;
+}
+
+.input-submit{
+    left: 46%;
+    margin-top: 30px;
+    position: relative;
+}
+
+textarea.form-control{
+    height:150px;
+}
+
+.input-group-text.task-title{
+    padding-left:2rem;
+    padding-right: 2rem;
+}
+
+@media (max-width: 1150px){
+    .def-text-box h1{
+        padding:140px;
+        font-size: 1.4rem;
+    }
+
+    .def-text-box h3{
+        font-size: 1rem;
+    }
+    .def-text-box{
+        height: 500px;
+    }
+}
+
+.successful-submit{
+    border-radius: 5px;
+    width: 80%;
+    height: 500px;
+    padding: 100px;
+    background-color: rgba(62, 249, 0, 0.65);
+    color:white;
+    left:10%;
+    text-align: center;
+    position: relative;
+    visibility: hidden;
+}
+
+.before-user-selected{
+    height:600px;
+    width:80%;
+    left:10%;
+    background-color: white;
+    position: relative;
+    border-radius: 5px;
+    text-align: center;
+    padding: 50px;
+}
+
+.init-img{
+    margin: 50px;
+    height: auto;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.btn.btn-primary.input-submit{
+    margin-right: 40px;
+}

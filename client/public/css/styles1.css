@@ -1,0 +1,61 @@
+.mocha-homepage{
+    background-image: linear-gradient(-90deg,  #007FFF, #9E3CFF);
+    text-align: center;
+    color: white;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.mocha-title{
+    margin: 7%;
+}
+
+.mocha-big{
+    font-size: 15rem;
+}
+
+
+.mocha-start-div-space{
+    margin: 30px;
+}
+
+.btn.btn-dark.mocha-start-div-space{
+    font-size: 1.2rem;
+    height:60px;
+    width:180px;
+}
+
+.mocha-bottom-section{
+    margin-top: 10%;
+}
+
+.mocha-ending{
+    margin-top: 10%;
+}
+
+.mocha-start-buttons{
+    font-size: 1.5rem;
+    width: 15%;
+    height: 70px;
+    color:#007FFF
+}
+
+.absolutely-button{
+    width:80%;
+    font-size: 3rem;
+}
+
+.lists{
+    text-align: center;
+}
+
+@media (max-width: 1150px){
+
+    .mocha-big{
+        font-size: 10rem;
+    }
+
+    .mocha-start-buttons{
+        font-size: 1.2rem;
+    }
+}
