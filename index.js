@@ -9,7 +9,7 @@ const app = express();
 // Serve the static files from the React app
 app.use(bodyParser.json());
 
-mongoose.connect(proces.env.MY_DB, { useUnifiedTopology: true,  useNewUrlParser: true  })
+mongoose.connect(process.env.MY_DB, { useUnifiedTopology: true,  useNewUrlParser: true  })
     .then(function(){
         console.log('mongodb connected')
     }).catch(function(err){
