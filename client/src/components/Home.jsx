@@ -6,7 +6,7 @@ import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, faCheckSquare, faCoffee)
 
-
+//Homepage with links to other pages
 function Home(){
     return <div className="mocha-homepage">
     <div className ="mocha-title">

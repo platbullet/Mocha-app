@@ -12,13 +12,14 @@ function Lists(props){
     const [items, setItems] = React.useState([]);
 
 
-
+    //sets the border of each list item to be a random color
     let randomColor = function(){
         return "#"+ Math.floor(Math.random()*16777215).toString(16);
     }
 
 
-
+    //when clicking on submit, it will add a unique id, a title from the title field,
+    //a description from the description field, and append it to the array and store it into the database
     function handleAdd(titleS, descS){
         console.log("area reached");
         let x = uuid();
@@ -46,6 +47,8 @@ function Lists(props){
 
     }
 
+    //deletes the item from the database as well as deleting it from the array of lists
+
     function handleDelete(idz){
         axios({
             method: 'delete',
@@ -70,10 +73,10 @@ function Lists(props){
         })
     }
 
+    //on initialization will find the current list data from the dtabase with its items and display it
+
     useEffect(function(){
-        console.log(props.id)
         axios.get("/api/users/initList", {params:{id:props.id}}).then(function(res){
-            console.log(res.data[0].list);
             let temp1 = res.data[0].list;
             let temp2 = temp1.map(function(e){
                 return < ListItem id={e.id} key={e.id} color={randomColor()} title={e.title} desc={e.description} deleteClicked={handleDelete}/>;

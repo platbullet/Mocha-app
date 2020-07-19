@@ -1,6 +1,8 @@
 import React from "react";
 import ProfilePic from './ProfilePic'
 
+//header with links to every page
+
 function Header() {
     return <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-nav">

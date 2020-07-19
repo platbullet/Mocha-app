@@ -2,13 +2,14 @@ const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const path = require('path');
-const router = express.Router();
 
 const app = express();
 
-// Serve the static files from the React app
+// Backend server where the frontend makes the API calls to fetch the data 
 app.use(bodyParser.json());
 
+
+//database connection stored through config variable 
 mongoose.connect(process.env.MY_DB, { useUnifiedTopology: true,  useNewUrlParser: true  })
     .then(function(){
         console.log('mongodb connected')
@@ -17,6 +18,8 @@ mongoose.connect(process.env.MY_DB, { useUnifiedTopology: true,  useNewUrlParser
     });
 
     mongoose.set('useFindAndModify', false);
+
+//creates the schema for how the item should look
 
 const ItemSchema = new mongoose.Schema({
     title:{
@@ -31,7 +34,7 @@ const ItemSchema = new mongoose.Schema({
     }
 })
 
-
+//creates the schema for how the user should look with a name, an id, and an array of items called a list
 const userSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -48,6 +51,8 @@ const Item = mongoose.model("Item", ItemSchema);
 const User = mongoose.model("User", userSchema);
 
 
+//the api call to get all the users in the database
+
 app.get('/api/users', function(req, res){
     User.find({}, function(err, foundUsers){
         res.json(foundUsers);
@@ -55,6 +60,7 @@ app.get('/api/users', function(req, res){
 })
 
 
+//finding all the list items under a certain user id
 
 app.get('/api/users/initList', function(req, res){
     console.log(req.query.id);  
@@ -64,6 +70,8 @@ app.get('/api/users/initList', function(req, res){
     })
 })
 
+
+//creating a new user 
 
 app.post('/api/users', function(req, res){
     const newUser = new User({
@@ -76,6 +84,8 @@ app.post('/api/users', function(req, res){
     newUser.save().then(item=>res.json(item));
 })
 
+//updating the user item list whenever an item is added
+
 app.patch('/api/users', function(req, res){
     console.log(req.body.list);
     User.findOneAndUpdate({"id":req.body.id}, {$push: {list: req.body.list[req.body.list.length-1]}}, function(err,x){
@@ -85,6 +95,8 @@ app.patch('/api/users', function(req, res){
         res.json(x);
     })
 })
+
+//updating the user item list whenever an item is deleted
 
 app.patch('/api/users/deleteItem', function(req, res){
     console.log(req.body.list);
@@ -96,7 +108,7 @@ app.patch('/api/users/deleteItem', function(req, res){
     })
 })
 
-
+//deleting a user from the database
 
 app.delete('/api/users/delete', (req, res)=>{
     console.log(req.body.name)
@@ -110,13 +122,15 @@ app.delete('/api/users/delete', (req, res)=>{
     });
 });
 
+//getting all the items from a certain user
+
 app.get('/api/items', (req, res)=>{
     Item.find({}, function(err, foundItems){
         res.json(foundItems)
     })
 })
 
-
+//adding a new item to the database
 app.post('/api/items', (req, res)=>{
     const newItem = new Item({
         title: req.body.title,
@@ -127,7 +141,7 @@ app.post('/api/items', (req, res)=>{
     newItem.save().then(item =>res.json(item));
 })
 
-
+//deleting an item from the database
 app.delete('/api/items/delete', (req, res)=>{
     Item.findOneAndRemove({id:req.body.id}, function(err, x){
         if(err){
@@ -137,6 +151,7 @@ app.delete('/api/items/delete', (req, res)=>{
     });
 });
 
+//for deploying the database on heroku
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
     app.get("*", (req, res) => {

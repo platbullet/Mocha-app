@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-
+//deleting a user from the database
 function DeleteList(){
 
     const [userValue, setUserValue] = React.useState("");
     const [visible, setVisible] = React.useState("hidden");
 
-
+    //checking if the user to be deleted does in fact exist and if not, pops an alert that it doesn't exist. If it does, 
+    // it will delete the user from the database
     function handleSubmit(event){
         if(userValue!= ""){
             console.log("if worked")

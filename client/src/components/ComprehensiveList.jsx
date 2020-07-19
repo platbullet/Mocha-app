@@ -3,6 +3,9 @@ import Lists from './Lists';
 import axios from 'axios';
 import uuid from 'react-uuid';
 
+//lists all the users and makes each user clickable
+//clicking the user will show the list of items under that user
+
 function ComprehensiveList(){
     
     const [usersArray, setUsersArray] = React.useState([]);
@@ -11,7 +14,8 @@ function ComprehensiveList(){
     const [visible, setVisible] = React.useState("visible");
 
 
-
+//on initialization it finds all the users from the database and makes it interactable, clicking on your user to find 
+// your items displayed under them
 
     useEffect(function(){
         axios.get("/api/users").then(function(res){

@@ -5,6 +5,9 @@ import ComprehensiveList from './ComprehensiveList'
 import addlist from './addlist'
 import deletelist from './deletelist'
 
+
+//all the routes in my react app
+
 const Main = () => (
     <main>
       <Switch>

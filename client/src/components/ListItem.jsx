@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+//each list item will have a random color as the border and will be deleted when the delete button is clicked
 function ListItem(props){
     const borderStyle = {
         borderColor: props.color

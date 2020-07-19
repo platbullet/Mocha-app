@@ -2,13 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import uuid from 'react-uuid';
 
-
+//adding a new User to the database
 function AddList(){
 
     const [userValue, setUserValue] = React.useState("");
     const [visible, setVisible] = React.useState("hidden");
 
-
+    //makes an api call to create a new user with a unique ID and a name of whatever the user entered into the input field
     function handleSubmit(event){
         if(userValue!= ""){
         axios.post("/api/users", {
@@ -23,6 +23,8 @@ function AddList(){
         
 
     }
+
+    //keeps track of the change to the user input field
 
     function handleUserChange(event){
         let temp = event.target.value;
