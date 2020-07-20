@@ -3,3 +3,6 @@ The data is stored in a mongoDB database. In order to use the app, add a user to
 and then proceed to go to view the list. Click on your user in order to see your specific data. Add information
 through the input area at the top of the list page and submit it. If you wish to delete your user go click on the delete
 user link and type in your user exactly as you added it.
+
+
+Link to the app: https://scheduler-mocha.herokuapp.com/
